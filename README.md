@@ -1,2 +1,2 @@
 # Tema3
-Dette er mit første semesters projekt i tema 3.
+Dette er mit 1. semesters projekt i tema 3.
