@@ -2,8 +2,8 @@
 /* Grundlæggende styling for body og navbar */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
   background: #E3E2D1;
+    font-family: 'Rosarivo', sans-serif;
 }
 
 .nav-container {
@@ -39,9 +39,8 @@ body {
 }
 
 #navbar a:hover {
-  background-color: #7c7c7c;
-  color: #000;
-  opacity: 0.6;
+  background-color: #7a2a2a;
+  color: #000000 !important;
   border-radius: 0;
 }
 
@@ -57,7 +56,7 @@ body {
 .burger .line {
   width: 25px;
   height: 3px;
-  background-color: #191919;
+  background-color: #000000;
   margin: 4px;
   transition: all 0.3s ease; /* Glat overgang ved animation */
 }
@@ -73,6 +72,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
+    flex-direction: column; /* Added to stack text and button vertically */
 }
 
 .hero-image {
@@ -90,21 +90,28 @@ body {
     color: #611C1C;
     text-align: center;
     background-color: #E3E2D1;
-    padding: 3rem 35vw;
+    padding: 1rem 31vw;
     border-radius: 0;
     max-width: 98%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-text h1 {
     font-size: 5rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-family: 'Pinyon Script', cursive, sans-serif;
     color: #611C1C;
+    font-weight: normal;
 }
 
-.hero-text p {
-    font-size: 1.2rem;
+.hero-text h3 {
+    font-size: 1.5rem;
+    margin-top: -25px;
+    margin-left: 150px;
+    font-weight: normal;
 }
 
 .hero-btn {
@@ -117,6 +124,9 @@ body {
     cursor: pointer;
     margin-top: 15px;
     transition: all 0.3s ease;
+    position: relative;
+    top: auto;
+    left: auto;
 }
 
 .hero-btn:hover {
@@ -126,6 +136,16 @@ body {
 
 /* ====== MOBILE STYLE ====== */
 @media screen and (max-width: 768px) {
+
+   /* .hero-text h3 {
+        font-size: 1.2rem;
+    }*/
+
+    .hero-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
     #navbar {
         display: none;
         position: absolute;
@@ -135,7 +155,6 @@ body {
         flex-direction: column;
         background-color: #E3E2D1;
         z-index: 999; /* Sørger for at menuen vises over alt */
-
     }
     #navbar a {
         width: 100%;
@@ -157,10 +176,13 @@ body {
     .testFlex > div {
         flex: 1 1 100%; /* fylder hele bredden på mobil */
         text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
     }
 
     .testFlex img {
         max-width: 80%; /* mindre på mobil */
+        height: auto;
     }
 }
 
@@ -173,7 +195,7 @@ body {
     align-items: center;
 }
 .testFlex button {
-    background-color: brown;
+    background-color: #7a2a2a;
     position: relative;
     right: 20px;
     bottom: 150px;
@@ -195,13 +217,15 @@ body {
     text-align: justify;
 }
 
+
+
+
 /* ====== REVERSE FLEX SEKTION ====== */
 .reverse {
     flex-direction: row-reverse;
 }
 .reverse p {
     margin-left: 15%;
-    background-color: brown;
     width: 60%;
 }
 .reverse h1 {
