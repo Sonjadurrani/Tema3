@@ -1,51 +1,57 @@
 /* ====== NAVBAR BASE ====== */
+/* Grundlæggende styling for body og navbar */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background: #E3E2D1;
 }
 
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #dadada;
+  display: flex; /* Gør navbaren til et flex-container for at placere elementer side om side */
+  justify-content: space-between; /* Fordeler pladsen mellem logo og links */
+  align-items: center; /* Centrerer indholdet vertikalt */
+  background-color: #E3E2D1;
   padding: 0 15px;
   height: 60px;
+  border-bottom: 2px solid #bcbcbc; /* Tynd grå linje under navbaren */
 }
 
-/* Logo */
+/* ====== LOGO ====== */
+/* Styling for logo-billedet i navbaren */
 .logo img{
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Links */
-    width:50px;
-    height:50px;
+  display: flex; /* (Ikke nødvendig på img, men ingen skade) */
+  justify-content: space-between;
+  align-items: center; /* Links */
+  width:50px; /* Fast bredde på logo */
+  height:50px; /* Fast højde på logo */
 }
 
 #navbar {
-  display: flex;
-  gap: 15px;
+  display: flex; /* Gør links til en række */
+  gap: 15px; /* Afstand mellem links */
 }
 
 #navbar a {
-  color: #191919;
+  color: #611C1C;
   text-decoration: none;
   padding: 14px 10px;
-  transition: 0.3s;
+  transition: 0.3s; /* Glat overgang ved hover */
 }
 
 #navbar a:hover {
   background-color: #7c7c7c;
   color: #000;
   opacity: 0.6;
-  border-radius: 5px;
+  border-radius: 0;
 }
 
 /* ====== BURGER MENU ====== */
+/* Skjuler burger-menuen som standard, viser den kun på mobil */
 .burger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
+  display: none; /* Vises kun på små skærme */
+  flex-direction: column; /* Laver linjerne lodret */
+  cursor: pointer; /* Gør det tydeligt, det kan klikkes */
+  z-index: 999;
 }
 
 .burger .line {
@@ -53,36 +59,160 @@ body {
   height: 3px;
   background-color: #191919;
   margin: 4px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Glat overgang ved animation */
+}
+
+/* === HERO SECTION === */
+/* Hero-sektion: stort billede med tekst ovenpå */
+.hero {
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #611C1C;
+    text-align: center;
+    background-color: #E3E2D1;
+    padding: 3rem 35vw;
+    border-radius: 0;
+    max-width: 98%;
+    box-sizing: border-box;
+}
+
+.hero-text h1 {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    font-family: 'Pinyon Script', cursive, sans-serif;
+    color: #611C1C;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+.hero-btn {
+    background-color: #611C1C;
+    color: #F3E4CD;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: #7a2a2a;
+    transform: scale(1.05);
 }
 
 /* ====== MOBILE STYLE ====== */
 @media screen and (max-width: 768px) {
-  #navbar {
+    #navbar {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #E3E2D1;
+        z-index: 999; /* Sørger for at menuen vises over alt */
+
+    }
+    #navbar a {
+        width: 100%;
+        padding: 14px 20px;
+        border-top: 1px solid #ccc;
+    }
+    .burger {
+        display: flex;
+    }
+    #navbar.active {
+        display: flex;
+    }
+    /* Animation – burger bliver til X */
+    .testFlex {
+        flex-direction: column; /* stacked layout */
+        align-items: center;
+    }
+
+    .testFlex > div {
+        flex: 1 1 100%; /* fylder hele bredden på mobil */
+        text-align: center;
+    }
+
+    .testFlex img {
+        max-width: 80%; /* mindre på mobil */
+    }
+}
+
+
+/* ====== TESTFLEX SEKTION ====== */
+.testFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.testFlex button {
+    background-color: brown;
+    position: relative;
+    right: 20px;
+    bottom: 150px;
+    color: white;
+    border-radius: 30px;
+}
+.testFlex img {
+    width: 300px;
+}
+.testFlex div {
+    width: 50%;
+}
+.testFlex div h1 {
+    text-align: center;
+    margin-right: 40%;
+}
+.testFlex div p {
+    margin-right: 40%;
+    text-align: justify;
+}
+
+/* ====== REVERSE FLEX SEKTION ====== */
+.reverse {
+    flex-direction: row-reverse;
+}
+.reverse p {
+    margin-left: 15%;
+    background-color: brown;
+    width: 60%;
+}
+.reverse h1 {
+    text-align: center;
+    margin-right: 40%;
+}
+.reverse img {
+    float: right;
+}
+.reverse .buttontest {
     position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #dadada;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    display: none;
-  }
-
-  #navbar a {
-    width: 100%;
-    padding: 14px 20px;
-    border-top: 1px solid #ccc;
-  }
-
-  .burger {
-    display: flex;
-  }
-
-  /* Når menuen åbnes */
-  #navbar.active {
-    display: flex;
-  }
-
-  /* Animation – burger bliver til X */
+    bottom: 100px;
+    right: 280px;
 }
