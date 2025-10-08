@@ -1,14 +1,23 @@
 /* =======================
    GLOBAL STYLES
 ======================= */
-body {
+html, body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #93a89f;
+  padding: 0;
+  height: 100%;
 }
 
 body {
-  padding-bottom: 100px; /* or whatever the footer height is */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #E3E2D1;
+}
+
+/* Allow content to take space before footer */
+.content-section {
+  flex: 1;
 }
 
 
@@ -17,7 +26,7 @@ body {
    NAVBAR STYLES
 ======================= */
 nav {
-  border-bottom: 2px solid black; /* line below navbar */
+  border-bottom: 2px solid black;
 }
 
 .nav-container {
@@ -31,9 +40,6 @@ nav {
 
 /* ----- Logo ----- */
 .logo img {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 50px;
   height: 50px;
 }
@@ -73,40 +79,114 @@ nav {
   transition: all 0.3s ease;
 }
 
+
+
+/* =======================
+   CONTENT SECTION
+======================= */
+.content-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 80px;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-block {
+  flex: 1;
+  max-width: 550px;
+  text-align: left;
+}
+
+.text-block h2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.text-block p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #111;
+  margin-bottom: 80px; /* more space before ART NOUVEAU */
+}
+
+.image-block {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.image-block img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* =======================
+   ART NOUVEAU HEADING
+======================= */
+.art-title {
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-align: left;
+  margin-top: 20px; /* controlled spacing */
+  color: #1a1a1a;
+  line-height: 1.1;
+  word-spacing: 0.3em;
+}
+
+.word-art {
+  display: inline-block;
+}
+
+.word-nouveau {
+  display: inline-block;
+}
+
+
+
 /* =======================
    FOOTER STYLES
 ======================= */
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   background-color: #767755;
   color: white;
-  padding: 5px 0; /* Very compact vertical space */
+  padding: 20px 0;
   display: flex;
-  justify-content: center; /* Center the inner container */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: auto; /* stays at bottom */
 }
 
 .footer-content {
   width: 100%;
-  max-width: 1200px; /* Keep content within safe bounds */
-  padding: 0 20px; /* Adds left/right spacing so icons don't touch edges */
+  max-width: 1200px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
-  gap: 4px; /* Small spacing between text lines */
-  font-size: 0.9rem; /* Optional: slightly smaller text */
+  gap: 4px;
+  font-size: 0.9rem;
 }
 
 .footer-right {
   display: flex;
-  gap: 12px; /* Spacing between icons */
+  gap: 12px;
 }
 
 .footer-right .icon {
@@ -126,6 +206,7 @@ footer {
    MOBILE STYLES
 ======================= */
 @media screen and (max-width: 768px) {
+  /* Navbar mobile layout */
   #navbar {
     position: absolute;
     top: 60px;
@@ -147,52 +228,59 @@ footer {
     display: flex;
   }
 
-  /* When menu opens */
   #navbar.active {
     display: flex;
   }
 
+  /* Stack text and image vertically */
+  .content-section {
+    flex-direction: column;
+    padding: 50px 25px;
+    gap: 40px;
+  }
 
-.content-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 60px 40px; /* Top-bottom + left-right spacing */
-  gap: 40px; /* Space between text and image */
-}
+  .text-block,
+  .image-block {
+    max-width: 100%;
+  }
 
-.text-block {
-  flex: 1;
-  max-width: 500px;
-}
+  .image-block {
+    justify-content: center;
+    order: 2; /* image below text */
+  }
 
-.text-block h2 {
-  margin-bottom: 10px;
-  font-size: 2rem;
-}
+  .text-block {
+    order: 1;
+  }
 
-.text-block p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
+  .image-block img {
+    max-width: 90%;
+  }
 
-.image-block {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
+  /* Stack ART / NOUVEAU vertically */
+  .art-title {
+    font-size: 3.2rem;
+    text-align: center;
+    margin-top: 40px;
+  }
 
-.image-block img {
-  max-height: 500px; /* Taller image */
-  width: auto;
-  border-radius: 8px; /* Optional: rounded corners */
-  object-fit: cover;
-}
+  .art-title .word-art,
+  .art-title .word-nouveau {
+    display: block;
+  }
 
+  .word-nouveau {
+    margin-top: 10px;
+  }
 
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-
-
-
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
