@@ -1,0 +1,198 @@
+/* =======================
+   GLOBAL STYLES
+======================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #93a89f;
+}
+
+body {
+  padding-bottom: 100px; /* or whatever the footer height is */
+}
+
+
+
+/* =======================
+   NAVBAR STYLES
+======================= */
+nav {
+  border-bottom: 2px solid black; /* line below navbar */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #93a89f;
+  padding: 0 15px;
+  height: 60px;
+}
+
+/* ----- Logo ----- */
+.logo img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+}
+
+/* ----- Navbar Links ----- */
+#navbar {
+  display: flex;
+  gap: 15px;
+}
+
+#navbar a {
+  color: #191919;
+  text-decoration: none;
+  padding: 14px 10px;
+  transition: 0.3s;
+}
+
+#navbar a:hover {
+  background-color: #7c7c7c;
+  color: #000;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+
+/* ----- Burger Menu (Hidden by default) ----- */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.burger .line {
+  width: 25px;
+  height: 3px;
+  background-color: #191919;
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+
+/* =======================
+   FOOTER STYLES
+======================= */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #767755;
+  color: white;
+  padding: 5px 0; /* Very compact vertical space */
+  display: flex;
+  justify-content: center; /* Center the inner container */
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1200px; /* Keep content within safe bounds */
+  padding: 0 20px; /* Adds left/right spacing so icons don't touch edges */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Small spacing between text lines */
+  font-size: 0.9rem; /* Optional: slightly smaller text */
+}
+
+.footer-right {
+  display: flex;
+  gap: 12px; /* Spacing between icons */
+}
+
+.footer-right .icon {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+.footer-right .icon:hover {
+  color: #00aced;
+}
+
+
+
+/* =======================
+   MOBILE STYLES
+======================= */
+@media screen and (max-width: 768px) {
+  #navbar {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #dadada;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+  }
+
+  #navbar a {
+    width: 100%;
+    padding: 14px 20px;
+    border-top: 1px solid #ccc;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  /* When menu opens */
+  #navbar.active {
+    display: flex;
+  }
+
+
+.content-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 40px; /* Top-bottom + left-right spacing */
+  gap: 40px; /* Space between text and image */
+}
+
+.text-block {
+  flex: 1;
+  max-width: 500px;
+}
+
+.text-block h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.text-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.image-block {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.image-block img {
+  max-height: 500px; /* Taller image */
+  width: auto;
+  border-radius: 8px; /* Optional: rounded corners */
+  object-fit: cover;
+}
+
+
+
+
+
+
+}
