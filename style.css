@@ -193,12 +193,12 @@ body {
     .testFlex img {
         max-width: 80%; /* mindre på mobil */
         height: auto;
-    }
-
+    } {
     div.scroll-container img {
         width: 60%; /* Billeder fylder mere af skærmen på mobil */
         max-width: none;
     }
+}
 }
 
 
@@ -210,13 +210,25 @@ body {
     align-items: center;
 }
 .testFlex button {
-    background-color: #7a2a2a;
+    background-color: #611C1C;
+    color: #F3E4CD;
     position: relative;
-    right: 20px;
+    right: 70px;
     bottom: 150px;
-    color: white;
     border-radius: 30px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+
 }
+
+.testFlex button:hover {
+    background-color: #7a2a2a !important;
+    transform: scale(1.05) !important;
+}
+
+
 .testFlex img {
     width: 500px;
     height: 332px;
@@ -240,6 +252,7 @@ body {
 /* ====== REVERSE FLEX SEKTION ====== */
 .reverse {
     flex-direction: row-reverse;
+    margin-bottom: 8%;
 }
 .reverse p {
     margin-left: 15%;
@@ -258,7 +271,7 @@ body {
 .reverse .buttontest {
     position: relative;
     top: 140px;
-    left: 210px;
+    left: 170px;
 }
 
 div.scroll-container {
@@ -274,8 +287,9 @@ div.scroll-container img {
     padding: 10px;
     border-top-left-radius: 50px;   /* Øverste venstre hjørne */
     border-top-right-radius: 50px;  /* Øverste højre hjørne */
-    width: 20%;
-    height: auto;
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
     max-width: 350px;
 }
 .galleri {
@@ -289,3 +303,69 @@ div.scroll-container img {
     display: block;
     object-fit: cover;
 }
+
+.artist-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #E3E2D1;
+    color: #611C1C;
+    padding: 50px 10%;
+    gap: 60px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.artist-left {
+    text-align: center;
+    flex: 1;
+}
+
+.artist-left h1 {
+    font-family: 'Rosarivo', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.artist-left img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    max-width: 350px;
+    border-radius: 30px;
+    display: block;
+    margin: 0 auto;
+}
+
+.artist-right {
+    flex: 2;
+    text-align: left;
+    margin-left: 100px;
+}
+
+.artist-right h2 {
+    font-family: 'Rosarivo', serif;
+    font-size: 2.2rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.artist-right h3 {
+    font-family: 'Rosarivo', serif;
+    font-weight: normal;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.artist-right p {
+    font-family: 'Rosarivo', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+
+
