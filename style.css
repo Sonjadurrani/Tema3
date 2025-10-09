@@ -194,12 +194,12 @@ body {
     .testFlex img {
         max-width: 80%; /* mindre på mobil */
         height: auto;
-    } {
+    }
+
     div.scroll-container img {
         width: 60%; /* Billeder fylder mere af skærmen på mobil */
         max-width: none;
     }
-}
 }
 
 
@@ -285,6 +285,8 @@ div.scroll-container {
     white-space: nowrap;
     padding: 10px;
     scroll-behavior: smooth;
+    /* FIX: Tvinger billederne til at være på linje (vandret scrolling) */
+    display: flex; 
 }
 
 div.scroll-container img {
@@ -379,13 +381,90 @@ div.scroll-container img {
     font-size: 2.5rem;
 }
 
+/* ====== PURE CSS FOOTER STYLING (Replicating Tailwind look) ====== */
+
+/* Footer background og overordnet afstand (Kompakt look) */
 footer {
-    /* BEMÆRK: footer-bg er her stadig '#9f9f79' fra :root,
-       men i din second.html er den sat til '#93a89f' via Tailwind config.
-       Tailwind-farven har forrang. */
-    background-color: #9f9f79;
-    color: var(--text-dark);
-    padding: 1.5rem 0; /* py-6 */
-    margin-top: 3rem; /* mt-12 */
+    background-color: #9f9f79; /* Samme farve som i din second.html */
+    color: #611C1C;
+    padding: 1rem 0; /* Gør footeren mindre i højden */
+    margin-top: 2.5rem; 
     width: 100%;
+}
+
+.footer-content {
+    /* Centrerer indholdet i midten og sætter basis layout */
+    max-width: 1280px; 
+    margin: 0 auto;
+    padding: 0 1rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Mobile/Default: Stack vertikalt */
+    flex-direction: column;
+    gap: 1rem; 
+}
+
+/* Desktop/Tablet: Arranger vandret */
+@media (min-width: 640px) {
+    .footer-content {
+        flex-direction: row;
+        padding: 0 1.5rem;
+    }
+    .contact-details {
+        text-align: left; /* OPDATERET: Venstrejustering til venstre side */
+    }
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem; /* Afstand mellem ikoner */
+}
+
+.contact-details p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ------------------------------------------------------------------
+   FOOTER IKON STYLING (UPDATED SELECTOR FOR REN CSS)
+------------------------------------------------------------------ */
+
+/* 1. Skjul originalt indhold (emojien) og sæt basisstørrelse for ikonet */
+.social-icons a {
+    color: transparent !important;
+    font-size: 0 !important;       
+    line-height: 0 !important;      
+    text-indent: -9999px; 
+    overflow: hidden; 
+
+    display: block;
+    width: 1.5rem;   /* 24px */
+    height: 1.5rem;  /* 24px */
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+    transition: opacity 0.3s ease; 
+}
+
+/* 2. Indsæt Billede som Baggrund */
+.social-icons a[aria-label="Facebook"] {
+    background-image: url('images/10462343.png'); 
+}
+
+.social-icons a[aria-label="Instagram"] {
+    background-image: url('images/10462345.png'); 
+}
+
+.social-icons a[aria-label="Twitter"] {
+    background-image: url('images/10483410.png'); 
+}
+
+/* 3. Bevar Hover Effekten */
+.social-icons a:hover {
+    opacity: 0.7; 
+    color: transparent !important;
+    background-color: transparent !important;
 }

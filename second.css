@@ -49,7 +49,7 @@ body {
 /* ------------------------------------------------------------------
    1. NAVIGATION STYLES
 ------------------------------------------------------------------ */
-/* (Resten af din navigation CSS er uændret, og de specifikke stilarter kommer fra Tailwind i HTML'en) */
+/* (Navigationen er i din style.css) */
 
 /* ------------------------------------------------------------------
    2. MAIN CONTENT STYLES
@@ -63,79 +63,10 @@ body {
     line-height: 1.6;
 }
 
-/* ------------------------------------------------------------------
-   3. FOOTER STYLES
------------------------------------------------------------------- */
-footer {
-    /* BEMÆRK: footer-bg er her stadig '#9f9f79' fra :root, 
-       men i din second.html er den sat til '#93a89f' via Tailwind config. 
-       Tailwind-farven har forrang. */
-    background-color: var(--footer-bg); 
-    color: var(--text-dark); 
-    padding: 1.5rem 0; /* py-6 */
-    margin-top: 3rem; /* mt-12 */
-    width: 100%;
-}
+/* De Tailwind-relaterede FOOTER- og IKON-stilarter er fjernet herfra, da footeren nu bruger den rene CSS fra style.css for 100% ensartethed. */
 
 /* ------------------------------------------------------------------
-   4. IKON-UDSKIFTNING VIA BAGGRUNDSBILLEDE (OPDATERET)
------------------------------------------------------------------- */
-
-/* 1. Skjul originalt indhold (emojien) og sæt basisstørrelse for ikonet */
-.flex.space-x-4 a {
-    /* Skjuler farven på emojien */
-    color: transparent !important;
-    
-    /* GØR SKRIFT OG LINJEHØJDE NUL for at fjerne emojien fra flowet. !important er nødvendig pga. Tailwind's 'text-xl' */
-    font-size: 0 !important;       
-    line-height: 0 !important;      
-    
-    /* Alternativ metode: Skubber emojien (indholdet) ud af boksen */
-    text-indent: -9999px; 
-    overflow: hidden; /* Sikrer, at det 'indented' indhold ikke vises */
-
-    /* Sæt linket til at være en blok og giv det en fast størrelse */
-    display: block;
-    width: 1.5rem;   /* 24px */
-    height: 1.5rem;  /* 24px */
-    
-    /* Indstillinger for billedet */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    /* Nulstiller padding, hvis der var noget fra den originale styling */
-    padding: 0;
-    
-    /* Bevarer en flot hover-overgang */
-    transition: opacity 0.3s ease; 
-}
-
-/* 2. Indsæt Billede som Baggrund (Brug dine korrekte stier her) */
-.flex.space-x-4 a[aria-label="Facebook"] {
-    /* TJEK at stien er korrekt relativt til din CSS-fil */
-    background-image: url('images/10462343.png'); 
-}
-
-.flex.space-x-4 a[aria-label="Instagram"] {
-    background-image: url('images/10462345.png'); 
-}
-
-.flex.space-x-4 a[aria-label="Twitter"] {
-    background-image: url('images/10483410.png'); 
-}
-
-/* 3. Bevar Hover Effekten */
-.flex.space-x-4 a:hover {
-    /* Giver en lille effekt, når man holder musen over */
-    opacity: 0.7; 
-    /* Fjern de gamle farveskift fra Tailwind, da de ikke virker på billeder */
-    color: transparent !important;
-    background-color: transparent !important;
-}
-
-/* ------------------------------------------------------------------
-   5. MEDIA QUERIES
+   3. MEDIA QUERIES
 ------------------------------------------------------------------ */
 @media (min-width: 640px) { /* sm breakpoint */
     /* Ingen nødvendige CSS-ændringer her */
