@@ -194,12 +194,12 @@ body {
     .testFlex img {
         max-width: 80%; /* mindre på mobil */
         height: auto;
-    } {
+    }
+
     div.scroll-container img {
         width: 60%; /* Billeder fylder mere af skærmen på mobil */
         max-width: none;
     }
-}
 }
 
 

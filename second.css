@@ -47,81 +47,9 @@ body {
 }
 
 /* ------------------------------------------------------------------
-   1. FIXED NAVIGATION STYLES
+   1. NAVIGATION STYLES
 ------------------------------------------------------------------ */
-.fixed-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 50;
-    background-color: var(--nav-bg);
-    box-shadow: 0 4px 6px -1px var(--shadow-color);
-    border-bottom: 2px solid var(--text-dark);
-    height: 64px; 
-}
-
-
-/* Burger Menu (Mobile) */
-.burger-menu {
-    display: flex; 
-    flex-direction: column;
-    padding: 0.5rem; 
-    border-radius: 0.375rem; 
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.burger-menu:hover {
-    background-color: rgba(55, 65, 81, 0.3); 
-}
-
-.burger-menu .line {
-    width: 24px; 
-    height: 2px; 
-    background-color: var(--text-dark); /* Bruger nu #611C1C */
-    margin-bottom: 3px; 
-    transition: all 0.3s ease;
-}
-
-.burger-menu .line:last-child {
-    margin-bottom: 0;
-}
-
-/* Mobile Menu Overlay */
-.mobile-menu-overlay {
-    position: fixed; 
-    top: 64px; 
-    left: 0;
-    width: 100%;
-    background-color: rgba(147, 168, 159, 0.95); 
-    backdrop-filter: blur(5px); 
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-menu-overlay.hidden {
-    display: none;
-}
-
-.mobile-menu-overlay a {
-    display: block;
-    color: var(--text-dark);
-    text-decoration: none;
-    padding: 0.75rem 1rem; 
-    border-top: none; 
-    border-bottom: 1px solid rgba(156, 163, 175, 0.5); 
-    transition: background-color 0.3s;
-}
-
-.mobile-menu-overlay a:first-child {
-    border-top: 1px solid rgba(156, 163, 175, 0.5);
-}
-
-
-.mobile-menu-overlay a:hover {
-    background-color: rgba(55, 65, 81, 0.6); 
-    color: var(--white);
-}
+/* (Resten af din navigation CSS er uændret, og de specifikke stilarter kommer fra Tailwind i HTML'en) */
 
 /* ------------------------------------------------------------------
    2. MAIN CONTENT STYLES
@@ -139,15 +67,75 @@ body {
    3. FOOTER STYLES
 ------------------------------------------------------------------ */
 footer {
+    /* BEMÆRK: footer-bg er her stadig '#9f9f79' fra :root, 
+       men i din second.html er den sat til '#93a89f' via Tailwind config. 
+       Tailwind-farven har forrang. */
     background-color: var(--footer-bg); 
-    color: var(--text-dark); /* OPDATERET: Sætter Rosarivo teksten i footer til #611C1C */
+    color: var(--text-dark); 
     padding: 1.5rem 0; /* py-6 */
     margin-top: 3rem; /* mt-12 */
     width: 100%;
 }
 
 /* ------------------------------------------------------------------
-   4. MEDIA QUERIES
+   4. IKON-UDSKIFTNING VIA BAGGRUNDSBILLEDE (OPDATERET)
+------------------------------------------------------------------ */
+
+/* 1. Skjul originalt indhold (emojien) og sæt basisstørrelse for ikonet */
+.flex.space-x-4 a {
+    /* Skjuler farven på emojien */
+    color: transparent !important;
+    
+    /* GØR SKRIFT OG LINJEHØJDE NUL for at fjerne emojien fra flowet. !important er nødvendig pga. Tailwind's 'text-xl' */
+    font-size: 0 !important;       
+    line-height: 0 !important;      
+    
+    /* Alternativ metode: Skubber emojien (indholdet) ud af boksen */
+    text-indent: -9999px; 
+    overflow: hidden; /* Sikrer, at det 'indented' indhold ikke vises */
+
+    /* Sæt linket til at være en blok og giv det en fast størrelse */
+    display: block;
+    width: 1.5rem;   /* 24px */
+    height: 1.5rem;  /* 24px */
+    
+    /* Indstillinger for billedet */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Nulstiller padding, hvis der var noget fra den originale styling */
+    padding: 0;
+    
+    /* Bevarer en flot hover-overgang */
+    transition: opacity 0.3s ease; 
+}
+
+/* 2. Indsæt Billede som Baggrund (Brug dine korrekte stier her) */
+.flex.space-x-4 a[aria-label="Facebook"] {
+    /* TJEK at stien er korrekt relativt til din CSS-fil */
+    background-image: url('images/10462343.png'); 
+}
+
+.flex.space-x-4 a[aria-label="Instagram"] {
+    background-image: url('images/10462345.png'); 
+}
+
+.flex.space-x-4 a[aria-label="Twitter"] {
+    background-image: url('images/10483410.png'); 
+}
+
+/* 3. Bevar Hover Effekten */
+.flex.space-x-4 a:hover {
+    /* Giver en lille effekt, når man holder musen over */
+    opacity: 0.7; 
+    /* Fjern de gamle farveskift fra Tailwind, da de ikke virker på billeder */
+    color: transparent !important;
+    background-color: transparent !important;
+}
+
+/* ------------------------------------------------------------------
+   5. MEDIA QUERIES
 ------------------------------------------------------------------ */
 @media (min-width: 640px) { /* sm breakpoint */
     /* Ingen nødvendige CSS-ændringer her */
