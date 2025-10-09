@@ -194,12 +194,12 @@ body {
     .testFlex img {
         max-width: 80%; /* mindre på mobil */
         height: auto;
-    }
-
+    } {
     div.scroll-container img {
         width: 60%; /* Billeder fylder mere af skærmen på mobil */
         max-width: none;
     }
+}
 }
 
 
@@ -379,3 +379,13 @@ div.scroll-container img {
     font-size: 2.5rem;
 }
 
+footer {
+    /* BEMÆRK: footer-bg er her stadig '#9f9f79' fra :root,
+       men i din second.html er den sat til '#93a89f' via Tailwind config.
+       Tailwind-farven har forrang. */
+    background-color: #9f9f79;
+    color: var(--text-dark);
+    padding: 1.5rem 0; /* py-6 */
+    margin-top: 3rem; /* mt-12 */
+    width: 100%;
+}
