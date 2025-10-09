@@ -4,6 +4,7 @@ body {
   margin: 0;
   background: #E3E2D1;
     font-family: 'Rosarivo', sans-serif;
+    color: #611C1C;
 }
 
 .nav-container {
@@ -209,6 +210,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .testFlex button {
     background-color: #611C1C;
     color: #F3E4CD;
@@ -240,10 +242,12 @@ body {
 .testFlex div h1 {
     text-align: center;
     margin-right: 40%;
+    color: #611C1C;
 }
 .testFlex div p {
     margin-right: 40%;
     text-align: justify;
+    color: #611C1C;
 }
 
 
@@ -367,5 +371,10 @@ div.scroll-container img {
     text-align: justify;
 }
 
+.events{
 
+    margin-left: 10%;
+    font-family: 'Rosarivo', serif;
+    font-size: 2.5rem;
+}
 
