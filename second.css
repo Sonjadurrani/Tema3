@@ -1,286 +1,154 @@
-/* =======================
-   GLOBAL STYLES
-======================= */
+/* ------------------------------------------------------------------
+   CSS VARIABLES & GLOBAL RESET
+------------------------------------------------------------------ */
+:root {
+    /* Colors from original Tailwind config */
+    --background-main: #E3E2D1;
+    --nav-bg: #93a89f;
+    --footer-bg: #9f9f79; /* Footer farve */
+    --text-dark: #611C1C; /* Farve for al mørk tekst */
+    --white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --border-color: #4a5568;
+}
+
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color: #E3E2D1;
-}
-
-/* Allow content to take space before footer */
-.content-section {
-  flex: 1;
-}
-
-
-
-/* =======================
-   NAVBAR STYLES
-======================= */
-nav {
-  border-bottom: 2px solid black;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #93a89f;
-  padding: 0 15px;
-  height: 60px;
-}
-
-/* ----- Logo ----- */
-.logo img {
-  width: 50px;
-  height: 50px;
-}
-
-/* ----- Navbar Links ----- */
-#navbar {
-  display: flex;
-  gap: 15px;
-}
-
-#navbar a {
-  color: #191919;
-  text-decoration: none;
-  padding: 14px 10px;
-  transition: 0.3s;
-}
-
-#navbar a:hover {
-  background-color: #7c7c7c;
-  color: #000;
-  opacity: 0.6;
-  border-radius: 5px;
-}
-
-/* ----- Burger Menu (Hidden by default) ----- */
-.burger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.burger .line {
-  width: 25px;
-  height: 3px;
-  background-color: #191919;
-  margin: 4px;
-  transition: all 0.3s ease;
-}
-
-
-
-/* =======================
-   CONTENT SECTION
-======================= */
-.content-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 80px 80px;
-  gap: 80px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.text-block {
-  flex: 1;
-  max-width: 550px;
-  text-align: left;
-}
-
-.text-block h2 {
-  margin-bottom: 15px;
-  font-size: 2rem;
-}
-
-.text-block p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #111;
-  margin-bottom: 80px; /* more space before ART NOUVEAU */
-}
-
-.image-block {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.image-block img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-
-
-/* =======================
-   ART NOUVEAU HEADING
-======================= */
-.art-title {
-  font-size: 5rem;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  text-align: left;
-  margin-top: 20px; /* controlled spacing */
-  color: #1a1a1a;
-  line-height: 1.1;
-  word-spacing: 0.3em;
-}
-
-.word-art {
-  display: inline-block;
-}
-
-.word-nouveau {
-  display: inline-block;
-}
-
-
-
-/* =======================
-   FOOTER STYLES
-======================= */
-footer {
-  background-color: #767755;
-  color: white;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: auto; /* stays at bottom */
-}
-
-.footer-content {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 0.9rem;
-}
-
-.footer-right {
-  display: flex;
-  gap: 12px;
-}
-
-.footer-right .icon {
-  color: white;
-  text-decoration: none;
-  font-size: 1.4rem;
-  transition: color 0.3s ease;
-}
-
-.footer-right .icon:hover {
-  color: #00aced;
-}
-
-
-
-/* =======================
-   MOBILE STYLES
-======================= */
-@media screen and (max-width: 768px) {
-  /* Navbar mobile layout */
-  #navbar {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #dadada;
-    width: 100%;
+    background-color: var(--background-main);
+    /* Bruger nu Rosarivo via Tailwind font-sans */
+    color: var(--text-dark); 
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    /* Padding for the fixed TOP navigation bar (64px = h-16) */
+    padding-top: 64px;
+}
+
+/* ------------------------------------------------------------------
+   PINYON SCRIPT STYLING JUSTERINGER (beholdt til H1/H2)
+------------------------------------------------------------------ */
+/* Ekstra styling til "Om os" for at gøre Pinyon Script synligt og læseligt, især på mobil */
+.pinyon-om-os {
+    /* Baseret på h2's font-size: 3rem (48px) */
+    font-size: 3rem; 
+    line-height: 1; 
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+    .pinyon-om-os {
+        /* Gør den endnu større på desktop for dramatisk effekt */
+        font-size: 4.5rem; 
+    }
+}
+
+/* ------------------------------------------------------------------
+   1. FIXED NAVIGATION STYLES
+------------------------------------------------------------------ */
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: var(--nav-bg);
+    box-shadow: 0 4px 6px -1px var(--shadow-color);
+    border-bottom: 2px solid var(--text-dark);
+    height: 64px; 
+}
+
+
+/* Burger Menu (Mobile) */
+.burger-menu {
+    display: flex; 
+    flex-direction: column;
+    padding: 0.5rem; 
+    border-radius: 0.375rem; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.burger-menu:hover {
+    background-color: rgba(55, 65, 81, 0.3); 
+}
+
+.burger-menu .line {
+    width: 24px; 
+    height: 2px; 
+    background-color: var(--text-dark); /* Bruger nu #611C1C */
+    margin-bottom: 3px; 
+    transition: all 0.3s ease;
+}
+
+.burger-menu .line:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed; 
+    top: 64px; 
+    left: 0;
+    width: 100%;
+    background-color: rgba(147, 168, 159, 0.95); 
+    backdrop-filter: blur(5px); 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-overlay.hidden {
     display: none;
-  }
+}
 
-  #navbar a {
-    width: 100%;
-    padding: 14px 20px;
-    border-top: 1px solid #ccc;
-  }
-
-  .burger {
-    display: flex;
-  }
-
-  #navbar.active {
-    display: flex;
-  }
-
-  /* Stack text and image vertically */
-  .content-section {
-    flex-direction: column;
-    padding: 50px 25px;
-    gap: 40px;
-  }
-
-  .text-block,
-  .image-block {
-    max-width: 100%;
-  }
-
-  .image-block {
-    justify-content: center;
-    order: 2; /* image below text */
-  }
-
-  .text-block {
-    order: 1;
-  }
-
-  .image-block img {
-    max-width: 90%;
-  }
-
-  /* Stack ART / NOUVEAU vertically */
-  .art-title {
-    font-size: 3.2rem;
-    text-align: center;
-    margin-top: 40px;
-  }
-
-  .art-title .word-art,
-  .art-title .word-nouveau {
+.mobile-menu-overlay a {
     display: block;
-  }
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 0.75rem 1rem; 
+    border-top: none; 
+    border-bottom: 1px solid rgba(156, 163, 175, 0.5); 
+    transition: background-color 0.3s;
+}
 
-  .word-nouveau {
-    margin-top: 10px;
-  }
+.mobile-menu-overlay a:first-child {
+    border-top: 1px solid rgba(156, 163, 175, 0.5);
+}
 
-  footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 
-  .footer-content {
-    flex-direction: column;
-    gap: 10px;
-  }
+.mobile-menu-overlay a:hover {
+    background-color: rgba(55, 65, 81, 0.6); 
+    color: var(--white);
+}
+
+/* ------------------------------------------------------------------
+   2. MAIN CONTENT STYLES
+------------------------------------------------------------------ */
+.main-content {
+    flex-grow: 1; 
+}
+
+.detail-list p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------
+   3. FOOTER STYLES
+------------------------------------------------------------------ */
+footer {
+    background-color: var(--footer-bg); 
+    color: var(--text-dark); /* OPDATERET: Sætter Rosarivo teksten i footer til #611C1C */
+    padding: 1.5rem 0; /* py-6 */
+    margin-top: 3rem; /* mt-12 */
+    width: 100%;
+}
+
+/* ------------------------------------------------------------------
+   4. MEDIA QUERIES
+------------------------------------------------------------------ */
+@media (min-width: 640px) { /* sm breakpoint */
+    /* Ingen nødvendige CSS-ændringer her */
 }

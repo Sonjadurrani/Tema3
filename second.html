@@ -1,94 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GITHUB</title>
-  <link rel="stylesheet" href="second.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARS NOUVEAU - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Rosarivo:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'background-main': '#E3E2D1',
+                    'nav-bg': '#93a89f',
+                    // Footer farve er #93A89F
+                    'footer-bg': '#93a89f', 
+                    // Farve for al mørk tekst
+                    'text-dark': '#611C1C',
+                },
+                fontFamily: {
+                    // Beholder Pinyon Script til de store, dekorative overskrifter (Om os, ART NOUVEAU)
+                    'heading': ['Pinyon Script', 'cursive'], 
+                    // Rosarivo for brødtekst og alle andre overskrifter/tekstelementer
+                    'sans': ['Rosarivo', 'serif'], 
+                },
+            }
+        }
+    }
+    </script>
+
+
+    <style>
+        /* Global styles matching the original body setup */
+        body {
+            background-color: #E3E2D1;
+            /* Add padding to the TOP of the body for the fixed nav (h-16) */
+            padding-top: 64px;
+            min-height: 100vh;
+        }
+        /* Style for the burger menu lines */
+        .line {
+            transition: all 0.3s ease;
+        }
+        /* Burger animation for 'toggle' state */
+        .burger.toggle .line:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .burger.toggle .line:nth-child(2) {
+            opacity: 0;
+        }
+        .burger.toggle .line:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        /* SIKRER NY FARVE PÅ BURGER LINJER */
+        .burger-menu .line, .burger .line {
+             background-color: #611C1C;
+        }
+        /* Special style for the detail list to align the text nicely */
+        .detail-list p {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        /* Justeringer for Pinyon Script: */
+        .pinyon-om-os {
+            /* Brug større størrelse for 'Om os' for at kompensere for Pinyon Scripts udseende */
+            font-size: 3rem; /* Ekstra stor på mobil */
+            line-height: 1;
+        }
+        @media (min-width: 640px) {
+            .pinyon-om-os {
+                font-size: 4.5rem; /* Endnu større på tablet/desktop */
+            }
+        }
+        
+    </style>
 </head>
-<body>
+<body class="font-sans min-h-screen">
 
+<nav class="fixed top-0 left-0 w-full z-50 bg-nav-bg shadow-2xl border-b-2 border-text-dark h-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
 
-<nav>
-  <div class="nav-container">
-    <div class="logo">
-      <a href="index.html">
-        <img src="images/logo.png" alt="logo" >
-      </a>
+        <div class="flex-shrink-0">
+            <a href="index.html" class="flex items-center">
+                <img src="images/logo.png" alt="Logo" class="w-10 h-10 rounded-full border border-text-dark">
+            </a>
+        </div>
+
+        <div id="navbar" class="hidden sm:flex sm:items-center space-x-4">
+            <a href="index.html" class="text-text-dark hover:bg-gray-700/60 hover:text-white px-3 py-2 rounded-lg transition duration-300">Home</a>
+            <a href="second.html" class="text-text-dark bg-gray-700/30 px-3 py-2 rounded-lg transition duration-300">About us</a>
+            <a href="#events" class="text-text-dark hover:bg-gray-700/60 hover:text-white px-3 py-2 rounded-lg transition duration-300">Events</a>
+        </div>
+
+        <div class="sm:hidden flex items-center">
+            <button id="burger" class="burger p-2 rounded-md hover:bg-gray-700/30 transition duration-300 focus:outline-none">
+                <div class="line w-6 h-0.5 bg-text-dark mb-1.5"></div>
+                <div class="line w-6 h-0.5 bg-text-dark mb-1.5"></div>
+                <div class="line w-6 h-0.5 bg-text-dark"></div>
+            </button>
+        </div>
     </div>
 
-    <div id="navbar">
-      <a href="index.html">Home</a>
-      <a href="second.html">About us</a>
-      <a href="#events">Events</a>
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-nav-bg/95 backdrop-blur-sm shadow-xl sm:hidden">
+        <a href="index.html" class="block text-text-dark hover:bg-gray-700/60 hover:text-white px-4 py-3 border-b border-gray-400 transition duration-300">Home</a>
+        <a href="second.html" class="block text-text-dark bg-gray-700/30 px-4 py-3 border-b border-gray-400 transition duration-300">About us</a>
+        <a href="#events" class="block text-text-dark hover:bg-gray-700/60 hover:text-white px-4 py-3 border-b border-gray-400 transition duration-300">Events</a>
     </div>
-
-    <!-- Burger menu -->
-    <div class="burger" id="burger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-  </div>
 </nav>
 
-<script>
+<main class="flex-grow">
+    <section class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-12">
 
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-16">
+            <div class="lg:w-1/2 w-full">
+                <h2 class="pinyon-om-os font-heading mb-6 text-text-dark">Om os</h2>
+                <p class="text-base sm:text-lg leading-relaxed text-text-dark">
+                    Studenternes Kunstforening Sjælland er et fællesskab for studerende med en passion for kunst, kreativitet og kultur. Vi samler unge kunstnere, designere og kunstinteresserede på tværs af fagområder for at skabe et rum, hvor idéer, udtryk og eksperimenter kan vokse frit.
+                    <br><br>
+                    Foreningen blev grundlagt med målet om at gøre kunsten tilgængelig for alle – ikke kun som noget man betragter, men som noget man deltager i. Gennem udstillinger, workshops, foredrag og sociale arrangementer skaber vi mødesteder, hvor medlemmer kan inspirere hinanden, dele viden og udvikle deres kunstneriske praksis.
+                    <br><br>
+                    Vi tror på, at kunst er mere end æstetik – det er en måde at forstå verden på, stille spørgsmål og skabe forandring. Vores projekter spænder fra små spontane udstillinger til større samarbejder med lokale gallerier og kulturinstitutioner på Sjælland.
+                    <br><br>
+                    Uanset om du er maler, fotograf, designer, forfatter eller blot nysgerrig på kunstens verden, er du velkommen hos os. Her handler det ikke om perfektion – men om passion.
+                </p>
+            </div>
+
+            <div class="lg:w-1/2 w-full flex justify-center lg:justify-end">
+                <img src="images/info.png" alt="Artistic Display" class="rounded-xl shadow-2xl max-w-full h-auto object-cover transition duration-500 hover:scale-[1.02]" />
+            </div>
+        </div>
+
+        <div class="w-full pt-16 border-t border-gray-400 mb-16">
+            <h1 class="text-5xl sm:text-8xl md:text-9xl font-heading font-black leading-none text-text-dark uppercase text-center lg:text-left">
+                <div class="flex flex-col items-center lg:items-start lg:flex-row">
+                    <span class="block">ART</span>
+                    <span class="block text-6xl sm:text-8xl md:text-9xl tracking-[.3em] mt-4 sm:mt-0 lg:ml-8 lg:mt-0">NOUVEAU</span>
+                </div>
+            </h1>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-16">
+            
+            <div class="w-full lg:w-1/2">
+                <h3 class="text-2xl font-bold mb-4 text-text-dark border-b border-gray-400 pb-2">Overblik</h3>
+                <div class="detail-list text-text-dark text-base sm:text-lg">
+                    <p><strong class="text-text-dark">Periode:</strong> ca. 1890–1910</p>
+                    <p><strong class="text-text-dark">Betydning:</strong> “Den nye kunst” (fransk: Art Nouveau)</p>
+                    <p><strong class="text-text-dark">Kendetegn:</strong> Organiske former, naturinspirerede motiver, dekorativ æstetik og integration af kunst i hverdagslivet.</p>
+                    <p><strong class="text-text-dark">Reaktion på:</strong> Industrialismen og masseproduktionens ensformighed.</p>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2">
+                <h3 class="text-2xl font-bold mb-4 text-text-dark border-b border-gray-400 pb-2">HISTORISK KONTEKST</h3>
+                <p class="text-text-dark text-base sm:text-lg leading-relaxed">
+                    I slutningen af 1800-tallet opstod en modbevægelse mod industrialiseringens kolde og mekaniske æstetik. Kunstnere og designere ønskede at genforene kunst, håndværk og arkitektur – og skabe en verden, hvor alt fra møbler til bygninger kunne være smukt og unikt.
+                </p>
+            </div>
+        </div>
+        <div class="bg-footer-bg p-12 sm:p-16 rounded-xl mt-16 shadow-2xl">
+            
+            <h3 class="text-3xl sm:text-4xl text-center mb-10 uppercase tracking-wider text-text-dark font-bold">
+                VISUELLE KENDETEGN
+            </h3>
+
+            <div class="flex flex-col space-y-6">
+                
+                <div class="border-b border-gray-400 pb-3">
+                    <p class="text-xl font-bold text-text-dark text-center">Organiske linjer:</p>
+                    <div class="flex justify-center">
+                        <p class="text-base text-text-dark inline-flex items-center"><span class="mr-2">•</span>Flydende, bølgende former inspireret af naturens rytmer.</p>
+                    </div>
+                </div>
+                
+                <div class="border-b border-gray-400 pb-3">
+                    <p class="text-xl font-bold text-text-dark text-center">Asymmetri:</p>
+                    <div class="flex justify-center">
+                        <p class="text-base text-text-dark inline-flex items-center"><span class="mr-2">•</span>Dynamiske kompositioner i stedet for klassisk balance.</p>
+                    </div>
+                </div>
+                
+                <div class="border-b border-gray-400 pb-3">
+                    <p class="text-xl font-bold text-text-dark text-center">Dekoration:</p>
+                    <div class="flex justify-center">
+                        <p class="text-base text-text-dark inline-flex items-center"><span class="mr-2">•</span>Overflader fyldt med ornamentik og detaljer.</p>
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-400 pb-3">
+                    <p class="text-xl font-bold text-text-dark text-center">Naturmotiver:</p>
+                    <div class="flex justify-center">
+                        <p class="text-base text-text-dark inline-flex items-center"><span class="mr-2">•</span>Planter, blomster, insekter, kvindefigurer, vand og hår.</p>
+                    </div>
+                </div>
+                
+                <div class="border-b border-gray-400 pb-3">
+                    <p class="text-xl font-bold text-text-dark text-center">Materialer:</p>
+                    <div class="flex justify-center">
+                        <p class="text-base text-text-dark inline-flex items-center"><span class="mr-2">•</span>Glas, jern, træ, mosaik, keramik.</p>
+                    </div>
+                </div>
+                
+                <div class="border-b border-gray-400 pb-3">
+                    <p class="text-xl font-bold text-text-dark text-center">Farver:</p>
+                    <div class="flex justify-center">
+                        <p class="text-base text-text-dark inline-flex items-center"><span class="mr-2">•</span>Bløde pasteller — grøn, guld, brun, elfenben, blå.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-xl font-bold text-text-dark text-center">Typografi:</p>
+                    <div class="flex justify-center">
+                        <p class="text-base text-text-dark inline-flex items-center"><span class="mr-2">•</span>Kurvede, håndtegnede bogstaver — ofte integreret i det visuelle udtryk.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </section>
+</main>
+
+<footer class="bg-footer-bg text-white py-6 mt-12 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
+        <div class="flex flex-col gap-1 text-sm mb-4 sm:mb-0 text-text-dark">
+            <p class="font-bold">Contact Us:</p>
+            <p class="email">skf@kunstforening.dk</p>
+            <p class="phone">+45 12 34 56 78</p>
+            <p class="address">Alfonsovej 16, 1700</p>
+        </div>
+
+        <div class="flex space-x-4">
+            <a href="https://facebook.com" target="_blank" class="text-text-dark hover:text-blue-500 text-xl transition duration-300" aria-label="Facebook">🌐</a>
+            <a href="https://instagram.com" target="_blank" class="text-text-dark hover:text-pink-500 text-xl transition duration-300" aria-label="Instagram">📸</a>
+            <a href="https://twitter.com" target="_blank" class="text-text-dark hover:text-sky-400 text-xl transition duration-300" aria-label="Twitter">🐦</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // JavaScript for the mobile burger menu toggle
     const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
     const navbar = document.getElementById('navbar');
 
     burger.addEventListener('click', () => {
-        navbar.classList.toggle('active');
         burger.classList.toggle('toggle');
+
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+            navbar.classList.add('hidden');
+        } else {
+            mobileMenu.classList.add('hidden');
+        }
     });
 
-
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 640) { 
+            mobileMenu.classList.add('hidden');
+            burger.classList.remove('toggle');
+        }
+    });
 </script>
-
-
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p class="email">skf@kunstforening.dk</p>
-      <p class="phone">+45 12 34 56 78</p>
-      <p class="address">Alfonsovej 16, 1700</p>
-    </div>
-
-    <div class="footer-right">
-      <a href="https://facebook.com" target="_blank" class="icon fb">🌐</a>
-      <a href="https://instagram.com" target="_blank" class="icon ig">📸</a>
-      <a href="https://twitter.com" target="_blank" class="icon tw">🐦</a>
-    </div>
-  </div>
-</footer>
-
-<section class="content-section">
-  <div class="text-block">
-    <h2>Om os</h2>
-    <p>
-      The Student Art Association of Zealand is a community for students with a passion for art, creativity, and culture. We bring together young artists, designers, and art enthusiasts across different fields of study to create a space where ideas, expression, and experimentation can grow freely.
-      The association was founded with the goal of making art accessible to everyone – not just as something to look at, but as something to take part in. Through exhibitions, workshops, lectures, and social events, we create meeting points where members can inspire each other, share knowledge, and develop their artistic practice.
-      We believe that art is more than aesthetics – it is a way of understanding the world, asking questions, and creating change. Our projects range from small spontaneous exhibitions to larger collaborations with local galleries and cultural institutions across Zealand.
-      Whether you are a painter, photographer, designer, writer, or simply curious about the world of art, you are welcome to join us. Here, it’s not about perfection – it’s about passion.
-    </p>
-
-    <!-- New big title -->
-    <h1 class="art-title">
-      <span class="word-art">ART</span> <span class="word-nouveau">NOUVEAU</span>
-    </h1>
-  </div>
-
-  <div class="image-block">
-    <img src="images/info.png" alt="Artistic Display">
-  </div>
-</section>
-
-
-
-
-
-
-
 
 </body>
 </html>
